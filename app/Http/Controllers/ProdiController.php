@@ -14,7 +14,8 @@ class ProdiController extends Controller
     {
         //panggil model prodi menggunakan eloquent
         $prodi = Prodi::all(); // perintah sql select* from prodi
-        dd($prodi);
+        //dd($prodi);
+        return view('prodi.index')->with('prodi', $prodi); //selain compact bisa menggunakan with()
     }
 
     /**
