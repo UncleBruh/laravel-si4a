@@ -13,7 +13,7 @@
         <td>{{ $item->singkatan }}</td>
         <td>{{ $item->kaprodi }}</td>
         <td>{{ $item->sekretaris }}</td>
-        <td></td>
+        <td>{{ $item->fakultas->nama}}</td>
     </tr>
 @endforeach
 </table>
