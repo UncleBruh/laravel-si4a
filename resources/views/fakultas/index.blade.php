@@ -1,3 +1,6 @@
+@extends('layout.main')
+
+@section('content')
 <h1>fakultas</h1>
 <table>
     <tr>
@@ -14,3 +17,4 @@
        <td> {{ $item->wakil_dekan }}</td>
     </tr>
 @endforeach
+@endsection
