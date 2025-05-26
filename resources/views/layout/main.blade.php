@@ -841,9 +841,10 @@
             });
     });
 </script>
+
 @session('success')
-<script>
-  Swal.fire({
+<script type="text/javascript">
+  swal({
   title: "Good job!",
   text: "{{  session('success')}}",
   icon: "success"

@@ -31,17 +31,17 @@
                         @enderror
                     </div>
                     <div class="mb-3" bis_skin_checked="1">
-                        <label for="kaprodi" class="form-label">Nama Dekan</label>
-                        <input type="text" class="form-control" name="dekan"value={{ old('kaprodi') }}>
-                        @error('kaprodi')
+                        <label for="dekan" class="form-label">Nama Dekan</label>
+                        <input type="text" class="form-control" name="dekan"value={{ old('dekan') }}>
+                        @error('dekan')
                           <div class="text-danger">
                               {{ $message }}</div>
                           @enderror
                     </div>
                     <div class="mb-3" bis_skin_checked="1">
-                        <label for="sekretaris" class="form-label">Nama Wakil Dekan</label>
-                        <input type="text" class="form-control" name="wakil_dekan"value={{ old('sekretaris') }}>
-                        @error('sekretaris')
+                        <label for="wakil_dekan" class="form-label">Nama Wakil Dekan</label>
+                        <input type="text" class="form-control" name="wakil_dekan"value={{ old('wakil_dekan') }}>
+                        @error('wakil_dekan')
                           <div class="text-danger">
                               {{ $message }}</div>
                           @enderror
