@@ -59,11 +59,11 @@
                     <td>
                       <a href="{{ route('mahasiswa.show', $item->id) }}" class="btn btn-info">Show</a>
                       <a href="{{ route('mahasiswa.edit', $item->id) }}" class="btn btn-warning">Edit</a>
-                      <a href="{{ route('mahasiswa.destroy', $item->id) }}" method="POST" class="d-inline">
+                      <form action="{{ route('mahasiswa.destroy', $item->id) }}" method="POST" class="d-inline">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Delete</button>
-                      </a>
+                      </form>
                     </td>
                 </tr>
                 @endforeach

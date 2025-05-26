@@ -24,6 +24,7 @@ class FakultasController extends Controller
      */
     public function create()
     {
+        $fakultas = Fakultas::all(); // ambil semua data prodi
         return view('fakultas.create');
     }
 
@@ -74,8 +75,15 @@ class FakultasController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Fakultas $fakultas)
+    public function destroy($fakultas)
     {
-        //
+        $fakultas = Fakultas ::findOrFail($fakultas);
+        //dd($fakultas);
+
+        //hapus data fakults
+        $fakultas -> delete();
+
+        //redirect ke route fakultas index
+        return redirect()->route('fakultas.index')->with('success','Fakultas berhasil dihapus');
     }
 }

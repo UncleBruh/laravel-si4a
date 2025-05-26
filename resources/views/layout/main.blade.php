@@ -841,7 +841,15 @@
             });
     });
 </script>
-
+@session('success')
+<script>
+  Swal.fire({
+  title: "Good job!",
+  text: "{{  session('success')}}",
+  icon: "success"
+});
+</script>
+@endsession
 </body>
 </html>
   </body>
