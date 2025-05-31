@@ -6,12 +6,23 @@ use Illuminate\Database\Eloquent\Model;
 
 class jadwal extends Model
 {
-    protected $table = 'jadwal';
+   protected $table = 'jadwal';
 
-    protected $fillable = ['nama', 'kode_mk', 'prodi_id'];
+    protected $fillable = [
+        'tahun_akademik',
+        'kode_smt',
+        'kelas',
+        'sesi_id',
+        'mata_kuliah_id',
+    ];
 
-    public function prodi()
+    public function sesi()
     {
-        return $this->belongsTo(Prodi::class);
+        return $this->belongsTo(Sesi::class);
+    }
+
+    public function mataKuliah()
+    {
+        return $this->belongsTo(MataKuliah::class);
     }
 }
