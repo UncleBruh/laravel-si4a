@@ -1,5 +1,5 @@
 @extends('layout.main')
-@section('title', 'Fakultas')
+@section('title', 'Jadwal')
 
 @section('content')
     <!--begin::Row-->
@@ -8,7 +8,7 @@
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
-            <h3 class="card-title">List Fakultas</h3>
+            <h3 class="card-title">List Jadwal</h3>
             <div class="card-tools">
                 <button
                 type="button"
@@ -30,7 +30,7 @@
             </div>
             </div>
             <div class="card-body">
-                <a href="{{ route('fakultas.create') }}" class="btn btn-primary"> Tambah </a>
+                <a href="{{ route('jadwal.create') }}" class="btn btn-primary"> Tambah </a>
                 <table class="table">
                     <thead>
                         <tr>
