@@ -24,8 +24,8 @@
                     </div>
                     <div class="mb-3">
                         <label for="nama" class="form-label">Kode Mata Kuliah</label>
-                        <input type="text" class="form-control" name="nama" value="{{ old('nama') }}">
-                        @error('nama')
+                        <input type="text" class="form-control" name="kode_mk" value="{{ old('kode_mk') }}">
+                        @error('kode_mk')
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
                       </div>

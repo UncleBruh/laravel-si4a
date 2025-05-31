@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\matakuliah;
+use App\Models\Prodi;
 use Illuminate\Http\Request;
 
 class MatakuliahController extends Controller
@@ -21,7 +22,8 @@ class MatakuliahController extends Controller
      */
     public function create()
     {
-        return view('matakuliah.create');
+        $prodi = Prodi::all();
+        return view('matakuliah.create', compact('prodi'))->with('success', 'Fakultas berhasil ditambahkan');;
     }
 
     /**
