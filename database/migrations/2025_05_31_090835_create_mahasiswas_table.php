@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('mahasiswa', function (Blueprint $table) {
             $table->id();
-            $table->string('npm', 11);
-            $table->string('nama', 30);
-            $table->enum('jk',['L', 'P']);
-            $table->date('tanggal_lahir');
-            $table->string('tempat_lahir', 30);
-            $table->string('asal_sma', 30);
-            $table->foreignId('prodi_id')->constrained('prodi')->onDelete('restrict')->onUpdate('restrict');;
-            $table->string('foto',50)->nullable();
+            $table-> string('npm', 11);
+                $table-> string('nama', 30);
+                $table-> enum('jk', ['L', 'P']);
+                $table-> date('tanggal_lahir');
+                $table-> string('tempat_lahir', 30);
+                $table-> string('asal_sma', 30);
+                $table->foreignId('prodi_id')->constrained('prodi')->onDelete('restrict')->onUpdate('restrict');
+                $table-> string('foto', 50)->nullable();
             $table->timestamps();
         });
     }
