@@ -30,7 +30,7 @@
         </div>
         <div class="card-body">
             <div class="card-body">
-               <a href="{{ route('jadwal.create') }}" class="btn btn-primary"> Tambah </a>
+               <a href="{{ route('sesi.create') }}" class="btn btn-primary"> Tambah </a>
                 <table class = "table table-bordered table-striped">
                         <tr>
                             <th>Sesi</th>
@@ -39,9 +39,9 @@
                 <tr>
                     <td>{{ $item->nama }}</td>
                     <td>
-                      <a href="{{ route('jadwal.show', $item->id) }}" class="btn btn-info">Show</a>
-                      <a href="{{ route('jadwal.edit', $item->id) }}" class="btn btn-warning">Edit</a>
-                      <form action="{{ route('jadwal.destroy', $item->id) }}" method="POST" class="d-inline">
+                      <a href="{{ route('sesi.show', $item->id) }}" class="btn btn-info">Show</a>
+                      <a href="{{ route('sesi.edit', $item->id) }}" class="btn btn-warning">Edit</a>
+                      <form action="{{ route('sesi.destroy', $item->id) }}" method="POST" class="d-inline">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Delete</button>

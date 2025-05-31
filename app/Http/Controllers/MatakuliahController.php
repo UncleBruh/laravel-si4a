@@ -12,7 +12,8 @@ class MatakuliahController extends Controller
      */
     public function index()
     {
-        //
+        $matakuliah = matakuliah::all();
+        return view('matakuliah.index', compact('matakuliah'));
     }
 
     /**
@@ -20,7 +21,7 @@ class MatakuliahController extends Controller
      */
     public function create()
     {
-        //
+        return view('matakuliah.create');
     }
 
     /**
@@ -28,7 +29,23 @@ class MatakuliahController extends Controller
      */
     public function store(Request $request)
     {
-        //
+    
+        //validasi input
+        $input = $request->validate(
+            [
+                'nama' => 'required',
+                'kode' => 'required|unique:matakuliah',
+                'prodi_id' => 'required'
+
+            ]);
+
+        //simpan data ke tabel fakultas
+        matakuliah::create($input);
+
+        //redirect ke route fakultas.index
+        return redirect()->route('matakuliah.index')
+            ->with('success', 'Mata Kuliah berhasil ditambahkan');
+
     }
 
     /**

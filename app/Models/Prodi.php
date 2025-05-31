@@ -22,7 +22,7 @@ class Prodi extends Model
             return $this->hasMany(Mahasiswa::class,'prodi_id', 'id');
         }
     
-    public function mata_kuliah(){
+    public function matakuliah(){
             return $this->hasMany(matakuliah::class,'prodi_id', 'id');
         }
 }

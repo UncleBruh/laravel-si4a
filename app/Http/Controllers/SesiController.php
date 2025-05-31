@@ -29,8 +29,9 @@ class SesiController extends Controller
         return redirect()->route('sesi.index');
     }
 
-    public function show(Sesi $sesi)
+    public function show( $sesi)
     {
+        $sesi = Sesi::findOrFail($sesi);
         return view('sesi.show', compact('sesi'));
     }
 
