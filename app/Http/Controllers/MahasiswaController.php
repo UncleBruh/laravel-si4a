@@ -104,7 +104,6 @@ class MahasiswaController extends Controller
         }
         //hapus data Mahasiswa
         $mahasiswa -> delete();
-
         //redirect ke route mahasiswa index
         return redirect()->route('mahasiswa.index')->with('success','Mahasiswa berhasil dihapus');
     }
