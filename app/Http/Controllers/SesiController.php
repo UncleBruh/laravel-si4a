@@ -15,7 +15,7 @@ class SesiController extends Controller
 
     public function create()
     {
-        return view('sesi.create');
+        return view('sesi.create')->with('success', 'Fakultas berhasil ditambahkan');;
     }
 
     public function store(Request $request)
@@ -26,8 +26,7 @@ class SesiController extends Controller
 
         Sesi::create($input);
 
-        return redirect()->route('sesi.index')
-            ->with('success', 'Sesi berhasil ditambahkan');
+        return redirect()->route('sesi.index');
     }
 
     public function show(Sesi $sesi)

@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Sesi extends Model
+class sesi extends Model
 {
     protected $table = 'sesi';
     protected $fillable = ['nama'];
