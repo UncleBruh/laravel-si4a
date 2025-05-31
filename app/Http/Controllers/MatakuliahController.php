@@ -36,7 +36,7 @@ class MatakuliahController extends Controller
         $input = $request->validate(
             [
                 'nama' => 'required',
-                'kode' => 'required|unique:matakuliah',
+                'kode_mk' => 'required',
                 'prodi_id' => 'required'
 
             ]);
@@ -63,7 +63,8 @@ class MatakuliahController extends Controller
      */
     public function edit(matakuliah $matakuliah)
     {
-        //
+        $matakuliah = matakuliah::all();
+        return view('matakuliah.edit', compact('matakuliah', 'prodi'));
     }
 
     /**
@@ -71,7 +72,15 @@ class MatakuliahController extends Controller
      */
     public function update(Request $request, matakuliah $matakuliah)
     {
-        //
+        $input = $request->validate([
+            'kode_mk' => 'required',
+            'nama' => 'required',
+            'prodi_id' => 'required'
+        ]);
+        $matakuliah->update($input);
+
+        return redirect()->route('matakuliah.index')
+            ->with('success', 'Mata Kuliah berhasil diubah');
     }
 
     /**
