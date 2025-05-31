@@ -300,6 +300,11 @@
                           <i class="nav-icon bi bi-palette"></i>
                           <p>Mahasiswa</p>
                     </a>
+                    <li class="nav-item">
+                        <a class='nav-link' href='{{url('sesi')}}'>
+                          <i class="nav-icon bi bi-palette"></i>
+                          <p>Sesi</p>
+                    </a>
               </li>
             </ul>
             <!--end::Sidebar Menu-->
