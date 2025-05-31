@@ -63,7 +63,7 @@ class MatakuliahController extends Controller
      */
     public function edit(matakuliah $matakuliah)
     {
-        $matakuliah = matakuliah::all();
+        $prodi = prodi::all();
         return view('matakuliah.edit', compact('matakuliah', 'prodi'));
     }
 
@@ -79,8 +79,7 @@ class MatakuliahController extends Controller
         ]);
         $matakuliah->update($input);
 
-        return redirect()->route('matakuliah.index')
-            ->with('success', 'Mata Kuliah berhasil diubah');
+        return redirect()->route('matakuliah.index')->with('success', 'Mata Kuliah berhasil diubah');
     }
 
     /**
@@ -88,6 +87,13 @@ class MatakuliahController extends Controller
      */
     public function destroy(matakuliah $matakuliah)
     {
-        //
+         $matakuliah = matakuliah ::findOrFail($matakuliah);
+        //dd($prodi);
+
+        //hapus data fakults
+        $matakuliah -> delete();
+
+        //redirect ke route fakultas index
+        return redirect()->route('matakuliah.index')->with('success','Mata Kuliah berhasil dihapus');
     }
 }

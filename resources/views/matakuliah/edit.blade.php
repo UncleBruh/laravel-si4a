@@ -32,10 +32,10 @@
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
                             <div class="mb-3">
-                                <label for="matakuliah_id" class="form-label">Program Studi</label>
-                                <select class="form-control" name="matakuliah_id">
-                                    @foreach($matakuliah as $item)
-                                    <option value="{{ $item->id }}" {{ old('matakuliah_id') == $item->id ? 'selected' : ($matakuliah->$prodi_id == $item->id ? 'selected' : null)  }}> {{ $item->nama}} </option>
+                                <label for="prodi_id" class="form-label">Program Studi</label>
+                                <select class="form-control" name="prodi_id">
+                                    @foreach($prodi as $item)
+                                    <option value="{{ $item->id }}" {{ old('prodi_id') == $item->id ? 'selected' : ($matakuliah->prodi_id == $item->id ? 'selected' : null)  }}> {{ $item->nama}} </option>
                                     @endforeach
                                 </select>
                             @error('prodi_id')
