@@ -13,9 +13,18 @@ return new class extends Migration
     {
         Schema::create('jadwals', function (Blueprint $table) {
             $table->id();
+            $table->string('tahun_akademik', 9);
+            $table->enum('kode_smt',['Ganjil', 'Genap']);
+            $table->string('kelas', 9);                        
+            $table->foreign('mata_kuliah_id')->constrained('matakuliahs')->onDelete('restrict')->onUpdate('restrict');
+            $table->foreign('dosen_id')->constrained('users')->onDelete('restrict')->onUpdate('restrict');
+            $table->foreign('sesi_id')->constrained('sesis')->onDelete('restrict')->onUpdate('restrict');
             $table->timestamps();
+
+
         });
     }
+
 
     /**
      * Reverse the migrations.
