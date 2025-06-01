@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\jadwal;
+use App\Models\Matakuliah;
+use App\Models\Sesi;
 use Illuminate\Http\Request;
 
 class JadwalController extends Controller
@@ -21,7 +23,9 @@ class JadwalController extends Controller
      */
     public function create()
     {
-        //
+        $matakuliah = matakuliah::all();
+        $sesi = Sesi::all();
+        return view('jadwal.create',compact('matakuliah', 'sesi'));
     }
 
     /**
@@ -29,15 +33,32 @@ class JadwalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         $input = $request->validate(
+            [
+                'tahun_akademik' => 'required',
+                'kode_smt' => 'required',
+                'kelas' => 'required',
+                'mata_kuliah_id' => 'required',
+                'sesi_id' => 'required'
+
+            ]);
+
+        //simpan data ke tabel fakultas
+        jadwal::create($input);
+
+        //redirect ke route fakultas.index
+        return redirect()->route('jadwal.index')
+            ->with('success', 'Jadwal berhasil ditambahkan');
+
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(jadwal $jadwal)
+    public function show( $jadwal)
     {
-        //
+        $jadwal = jadwal::findOrFail($jadwal);
+        return view('jadwal.show', compact('jadwal'));
     }
 
     /**
@@ -45,7 +66,9 @@ class JadwalController extends Controller
      */
     public function edit(jadwal $jadwal)
     {
-        //
+        $matakuliah = Matakuliah::all();
+        $sesi = Sesi::all();
+        return view('jadwal.edit', compact('jadwal', 'matakuliah', 'sesi'));
     }
 
     /**
@@ -53,14 +76,34 @@ class JadwalController extends Controller
      */
     public function update(Request $request, jadwal $jadwal)
     {
-        //
+        $input = $request->validate(
+            [
+                'tahun_akademik' => 'required',
+                'kode_smt' => 'required',
+                'kelas' => 'required',
+                'mata_kuliah_id' => 'required',
+                'sesi_id' => 'required'
+            ]);
+
+        //update data ke tabel jadwal
+        $jadwal->update($input);
+
+        //redirect ke route jadwal.index
+        return redirect()->route('jadwal.index')
+            ->with('success', 'Jadwal berhasil diperbarui');  
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(jadwal $jadwal)
+    public function destroy( $jadwal)
     {
-        //
+        $jadwal = Jadwal::findOrFail($jadwal);
+        //hapus data jadwal
+        $jadwal->delete();
+
+        //redirect ke route jadwal.index
+        return redirect()->route('jadwal.index')
+            ->with('success', 'Jadwal berhasil dihapus');
     }
 }

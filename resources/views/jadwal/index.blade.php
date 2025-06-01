@@ -34,25 +34,25 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Nama</th>
-                            <th>Singkatan</th>
-                            <th>Dekan</th>
-                            <th>Wakil Dekan</th>
-                            <th>Aksi</th>
+                            <th>Tahun Akademik</th>
+                            <th>Kode Semester</th>
+                            <th>Nama Kelas</th>
+                            <th>Sesi</th>
+                            <th>Nama Mata Kuliah</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($fakultas as $item)
+                        @foreach ($jadwal as $item)
                             <tr>
                                 <td>{{ $item->tahun_akademik }}</td>
                                 <td>{{ $item->kode_smt }}</td>
                                 <td>{{ $item->kelas}}</td>
-                                <td>{{ $item->sesi_id}}</td>
-                                <td>{{ $item->mata_kuliah_id}}</td>
+                                <td>{{ $item->sesi->nama}}</td>
+                                <td>{{ $item->matakuliah->nama}}</td>
                                 <td>
-                                <a href="{{ route('fakultas.show', $item->id) }}" class="btn btn-info">Show</a>
-                                <a href="{{ route('fakultas.edit', $item->id) }}" class="btn btn-warning">Edit</a>
-                                <form action="{{ route('fakultas.destroy', $item->id) }}" method="POST" class="d-inline">
+                                <a href="{{ route('jadwal.show', $item->id) }}" class="btn btn-info">Show</a>
+                                <a href="{{ route('jadwal.edit', $item->id) }}" class="btn btn-warning">Edit</a>
+                                <form action="{{ route('jadwal.destroy', $item->id) }}" method="POST" class="d-inline">
                                  @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger show_confirm" data-toggle="tooltip" title='Delete' data-nama={{$item->nama}}>Delete</button>

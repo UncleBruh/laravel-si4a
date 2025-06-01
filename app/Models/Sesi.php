@@ -10,8 +10,9 @@ class sesi extends Model
     protected $table = 'sesi';
     protected $fillable = ['nama'];
 
-    public function jadwal(): HasMany
-    {
-        return $this->hasMany(Jadwal::class);
-    }
+    //public function jadwal(): HasMany
+    //{
+    //    return $this->hasMany(Jadwal::class);
+    //}
 }
+

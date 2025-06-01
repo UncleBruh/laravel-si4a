@@ -23,14 +23,14 @@
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="nama" class="form-label">Kode Mata Kuliah</label>
+                        <label for="kode_mk" class="form-label">Kode Mata Kuliah</label>
                         <input type="text" class="form-control" name="kode_mk" value="{{ old('kode_mk') }}">
                         @error('kode_mk')
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
                       </div>
                     <div class="mb-3">
-                        <label for="nama" class="form-label">Prodi</label>
+                        <label for="prodi_id" class="form-label">Prodi</label>
                         <select class="form-control" name="prodi_id">
                         @foreach($prodi as $item)
                         <option value ="{{$item->id}}">{{$item->nama}}</option>

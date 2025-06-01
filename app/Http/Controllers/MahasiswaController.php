@@ -77,7 +77,9 @@ class MahasiswaController extends Controller
      */
     public function edit(Mahasiswa $mahasiswa)
     {
-        //
+        //dd($mahasiswa);
+        $prodi = Prodi::all(); // ambil semua data prodi
+        return view('mahasiswa.edit', compact('mahasiswa', 'prodi')); // mengirimkan data mahasiswa dan prodi ke view mahasiswa.edit
     }
  
     /**
@@ -85,7 +87,22 @@ class MahasiswaController extends Controller
      */
     public function update(Request $request, Mahasiswa $mahasiswa)
     {
-        //
+        $input = $request->validate(
+            [
+                'npm' => 'required|unique:mahasiswa,npm,' . $mahasiswa->id,
+                'nama' => 'required',
+                'jk' => 'required',
+                'tanggal_lahir' => 'required',
+                'tempat_lahir' => 'required',
+                'asal_sma' => 'required',
+                'prodi_id' => 'required',
+                'foto' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            ]);
+
+            $mahasiswa->update($input);
+
+            return redirect()->route('mahasiswa.index')
+                ->with('success', 'Mahasiswa berhasil diupdate');
     }
  
     /**

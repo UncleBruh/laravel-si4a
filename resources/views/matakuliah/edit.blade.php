@@ -1,5 +1,5 @@
     @extends('layout.main')
-@section('title', 'Prodi')
+@section('title', 'Mata Kuliah')
 @section('content')
     <div class="container-fluid">
         <!--begin::Row-->

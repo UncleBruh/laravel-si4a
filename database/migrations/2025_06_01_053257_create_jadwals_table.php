@@ -14,7 +14,7 @@ return new class extends Migration
             Schema::create('jadwal', function (Blueprint $table) {
             $table->id();
             $table->string('tahun_akademik', 10);
-            $table->string('kode_smt', 10);
+            $table->enum('kode_smt', allowed: ['Gasal', 'Genap']);
             $table->string('kelas', 10);
             $table->foreignId('sesi_id')->constrained('sesi')->onDelete('restrict')->onUpdate('restrict');
             $table->foreignId('mata_kuliah_id')->constrained('mata_kuliah')->onDelete('restrict')->onUpdate('restrict');

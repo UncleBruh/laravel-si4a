@@ -53,9 +53,11 @@ class MatakuliahController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(matakuliah $matakuliah)
+    public function show($matakuliah)
     {
-        //
+        $matakuliah = matakuliah::findOrFail($matakuliah);
+        //dd($matakuliah);
+        return view('matakuliah.show', compact('matakuliah'));
     }
 
     /**
@@ -85,7 +87,7 @@ class MatakuliahController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(matakuliah $matakuliah)
+    public function destroy( $matakuliah)
     {
          $matakuliah = matakuliah ::findOrFail($matakuliah);
         //dd($prodi);
