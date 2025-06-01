@@ -96,9 +96,9 @@ class MahasiswaController extends Controller
                 'tempat_lahir' => 'required',
                 'asal_sma' => 'required',
                 'prodi_id' => 'required',
-                'foto' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            ]);
 
+            ]);
+            
             $mahasiswa->update($input);
 
             return redirect()->route('mahasiswa.index')
