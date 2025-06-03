@@ -58,7 +58,17 @@
                          @error('mata_kuliah_id')
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
-                      </div>                         
+                      </div>
+                    <div class="mb-3">
+                        <label for="dosen_id" class="form-label">Dosen</label>
+                        <select class="form-control" name="dosen_id">
+                        @foreach($user as $item)
+                        <option value ="{{$item->id}}">{{$item->user->name ?? 'N/A'}}</option>
+                        @endforeach
+                        </select>
+                         @error('dosen_id')
+                        <div class="text-danger">{{ $message }}</div>
+                        @enderror                         
                     </div>
                     <!--end::Body-->
                     <!--begin::Footer-->

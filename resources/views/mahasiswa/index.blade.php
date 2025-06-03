@@ -48,7 +48,7 @@
                 <tr>
                     <td><img src="images/{{ $item->foto }}" width="80px"/></td>
                     <td>{{ $item->npm }}</td>
-                    <td>{{ $item ->nama }}</td> 
+                    <td>{{ $item->user->name ?? 'N/A' }}</td>
                     <td>{{ $item->jk }}</td>
                     <td>{{ $item->tanggal_lahir }}</td>
                     <td>{{ $item->tempat_lahir }}</td>

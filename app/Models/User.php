@@ -45,4 +45,11 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+     public function jadwals() // Anda bisa menamainya sesuai preferensi, misal: jadwalSebagaiDosen
+    {
+        // Argumen kedua adalah foreign key di tabel 'jadwal'
+        // Argumen ketiga adalah local key di tabel 'users' (biasanya 'id', jadi opsional jika mengikuti konvensi)
+        return $this->hasMany(Jadwal::class, 'dosen_id');
+    }
 }

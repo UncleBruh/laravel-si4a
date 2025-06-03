@@ -39,7 +39,7 @@
                 </tr>
                 <tr>
                     <th>Nama</th>
-                    <td>{{ $mahasiswa->nama }}
+                    <td><td>{{ $mahasiswa->user->name ?? 'Belum Dikaitkan' }}</td>
                 </tr>
                 <tr>
                     <th>NPM</th>

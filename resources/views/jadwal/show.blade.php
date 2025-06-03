@@ -53,6 +53,10 @@
                         <th>Program Studi Mata Kuliah</th>
                         <td>{{ $jadwal->mataKuliah->prodi->nama }}</td> 
                     </tr>
+                    <tr>
+                        <th>Dosen</th>
+                        <td>{{ $jadwal->dosen->user->name ?? 'N/A' }}</td>
+                    </tr>
                 </table>
             </div>
         </div>

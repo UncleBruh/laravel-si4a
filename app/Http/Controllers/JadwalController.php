@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\jadwal;
 use App\Models\Matakuliah;
 use App\Models\Sesi;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class JadwalController extends Controller
@@ -25,7 +26,8 @@ class JadwalController extends Controller
     {
         $matakuliah = matakuliah::all();
         $sesi = Sesi::all();
-        return view('jadwal.create',compact('matakuliah', 'sesi'));
+        $users = User::where('role', 'dosen')->get();
+        return view('jadwal.create',compact('matakuliah', 'sesi', 'users'));
     }
 
     /**
@@ -39,8 +41,8 @@ class JadwalController extends Controller
                 'kode_smt' => 'required',
                 'kelas' => 'required',
                 'mata_kuliah_id' => 'required',
-                'sesi_id' => 'required'
-
+                'sesi_id' => 'required',
+                'dosen_id' => 'required'
             ]);
 
         //simpan data ke tabel fakultas
@@ -68,7 +70,8 @@ class JadwalController extends Controller
     {
         $matakuliah = Matakuliah::all();
         $sesi = Sesi::all();
-        return view('jadwal.edit', compact('jadwal', 'matakuliah', 'sesi'));
+        $users = User::where('role', 'dosen')->get(); 
+        return view('jadwal.edit', compact('jadwal', 'matakuliah', 'sesi', 'users'));
     }
 
     /**
@@ -82,7 +85,8 @@ class JadwalController extends Controller
                 'kode_smt' => 'required',
                 'kelas' => 'required',
                 'mata_kuliah_id' => 'required',
-                'sesi_id' => 'required'
+                'sesi_id' => 'required',
+                'dosen_id' => 'required'
             ]);
 
         //update data ke tabel jadwal
