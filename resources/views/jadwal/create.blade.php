@@ -62,8 +62,10 @@
                     <div class="mb-3">
                         <label for="dosen_id" class="form-label">Dosen</label>
                         <select class="form-control" name="dosen_id">
-                        @foreach($user as $item)
-                        <option value ="{{$item->id}}">{{$item->user->name ?? 'N/A'}}</option>
+                          @foreach($users as $user_item)
+                            <option value="{{ $user_item->id }}" {{ old('dosen_id') == $user_item->id ? 'selected' : '' }}>
+                              {{ $user_item->name }}
+                            </option>
                         @endforeach
                         </select>
                          @error('dosen_id')

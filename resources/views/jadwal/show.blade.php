@@ -1,5 +1,5 @@
 @extends('layout.main')
-@section('title', 'Detail Jadwal')
+@section('title', 'Jadwal')
 
 @section('content')
 <div class="row">
@@ -8,7 +8,7 @@
             <div class="card-header">
                 <h3 class="card-title">Detail Jadwal</h3>
                 <div class="card-tools">
-                    <button
+                    <button 
                         type="button"
                         class="btn btn-tool"
                         data-lte-toggle="card-collapse"
@@ -55,7 +55,7 @@
                     </tr>
                     <tr>
                         <th>Dosen</th>
-                        <td>{{ $jadwal->dosen->user->name ?? 'N/A' }}</td>
+                        <td>{{ $jadwal->dosen->name }}</td>
                     </tr>
                 </table>
             </div>
@@ -63,3 +63,6 @@
     </div>
 </div>
 @endsection
+
+
+

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('kelas', 10);
             $table->foreignId('sesi_id')->constrained('sesi')->onDelete('restrict')->onUpdate('restrict');
             $table->foreignId('mata_kuliah_id')->constrained('mata_kuliah')->onDelete('restrict')->onUpdate('restrict');
-            $table->foreignId('dosen_id')->constrained('users')->onDelete('restrict')->onUpdate('restrict'); // Menggunakan 'users' sebagai tabel dosen
+            $table->foreignId('dosen_id')->constrained('users')->onDelete('restrict')->onUpdate('restrict');
             $table->timestamps();
         });
     }
