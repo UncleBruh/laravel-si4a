@@ -43,7 +43,7 @@
                     </tr>
                     <tr>
                         <th>Sesi</th>
-                        <td>{{ $jadwal->sesi->nama_sesi }}</td> 
+                        <td>{{ $jadwal->sesi->nama }}</td> 
                     </tr>
                     <tr>
                         <th>Mata Kuliah</th>
