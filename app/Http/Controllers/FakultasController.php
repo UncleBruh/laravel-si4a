@@ -33,6 +33,11 @@ class FakultasController extends Controller
      */
     public function store(Request $request)
     {
+        // cek apakah user memiliki izin nutuk membuat fakultas
+        if($request->user()->cannot('create', Fakultas::class)){
+            abort(403, 'Unauthorized action.');
+        }
+
         //
         //validasi input
         $input = $request->validate(
@@ -59,7 +64,6 @@ class FakultasController extends Controller
         // dd($fakultas);
         return view('fakultas.show', compact('fakultas'));
     }
-
     /**
      * Show the form for editing the specified resource.
      */
@@ -76,6 +80,10 @@ class FakultasController extends Controller
     public function update(Request $request, $fakultas)
     {
         
+        if($request->user()->cannot('update', $fakultas)){
+        abort(403, 'Unauthorized action.');//pembatas 
+        }
+
         $fakultas = Fakultas::findorfail($fakultas);
         //validasi input
         $input = $request->validate(
@@ -97,9 +105,15 @@ class FakultasController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($fakultas)
+    public function destroy(Request $request , $fakultas)
     {
         //
+        
+
+        if($request->user()->cannot('delete', $fakultas)){
+        abort(403, 'Unauthorized action.');//pembatas 
+        }
+
         $fakultas=Fakultas::findOrFail($fakultas);
 
         $fakultas->delete();
