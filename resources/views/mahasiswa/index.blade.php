@@ -42,11 +42,10 @@
                             <th>Nama Prodi</th>
                             <th>Fakutas</th>
                             <th>Aksi</th>
-                            <th>Foto</th>
                         </tr>
                 @foreach ($mahasiswa as $item)
                 <tr>
-                    <td><img src="images/{{ $item->foto }}" width="80px"/></td>
+                    <td><img src="{{ $item->foto }}" width="80px"/></td>
                     <td>{{ $item->npm }}</td>
                     <td>{{ $item->user->name ?? 'N/A' }}</td>
                     <td>{{ $item->jk }}</td>
@@ -55,7 +54,6 @@
                     <td>{{ $item->asal_sma }}</td>
                     <td>{{ $item->prodi->nama}}</td>
                     <td>{{ $item->prodi->fakultas->nama}}</td>
-                    <td>{{ $item->foto }}</td>
                     <td>
                       <a href="{{ route('mahasiswa.show', $item->id) }}" class="btn btn-info">Show</a>
                       <a href="{{ route('mahasiswa.edit', $item->id) }}" class="btn btn-warning">Edit</a>

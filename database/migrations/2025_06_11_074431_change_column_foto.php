@@ -11,11 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->enum('role', ['admin', 'dosen', 'mahasiswa'])
-                  ->default('admin')
-                  ->after('email')
-                  ->comment('Role pengguna: admin, dosen, atau mahasiswa');
+        Schema::table('mahasiswa', function (Blueprint $table) {
+            //mengubah kolom foto
+            $table->string('foto',100)->change();
         });
     }
 
@@ -24,9 +22,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('mahasiswa', function (Blueprint $table) {
             //
         });
     }
-    
 };
